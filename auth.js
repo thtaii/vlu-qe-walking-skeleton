@@ -1,1 +1,1 @@
-return username === "admin" && password === "123";
+return username === "admin" && password === "1234";
