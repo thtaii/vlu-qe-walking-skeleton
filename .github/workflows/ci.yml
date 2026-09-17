@@ -1,0 +1,31 @@
+name: Jest Unit Tests
+
+# Chạy khi có code mới được push lên main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run Jest Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Bước 1: Lấy mã nguồn từ repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Bước 2: Cài đặt Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Bước 3: Cài đặt thư viện
+      - name: Install dependencies
+        run: npm install
+
+      # Bước 4: Chạy Unit Test Jest
+      - name: Run Jest tests
+        run: npm test
